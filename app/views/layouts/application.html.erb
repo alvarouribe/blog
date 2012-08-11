@@ -7,7 +7,20 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+ 	<% if !flash.blank? %>
+	<div class ="messages">
+		
+		<%= flash.each do |key, value| %>
+		
+		<div class="<%= key.to_s %>">
+			<%= value %>
+		</div>
+		
+		<% end %>	
+	</div>
+	
+	<% end %>
+	
 <%= yield %>
 
 </body>
